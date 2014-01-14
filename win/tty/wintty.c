@@ -2510,6 +2510,7 @@ int
 tty_nhgetch()
 {
     int i;
+#if 0
 #ifdef UNIX
     /* kludge alert: Some Unix variants return funny values if getc()
      * is called, interrupted, and then called again.  There
@@ -2535,6 +2536,11 @@ tty_nhgetch()
     --nesting;
 #else
     i = tgetch();
+#endif
+#else
+    extern int rtems_tty_getch(void);
+
+    i = rtems_tty_getch();
 #endif
     if (!i) i = '\033'; /* map NUL to ESC since nethack doesn't expect NUL */
     if (ttyDisplay && ttyDisplay->toplin == 1)

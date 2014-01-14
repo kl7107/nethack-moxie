@@ -14,6 +14,8 @@
  *		provide it (no need to change sec#1, vmsconf.h handles it).
  */
 
+# define ANSI_DEFAULT
+
 #define UNIX		/* delete if no fork(), exec() available */
 
 /* #define MSDOS */	/* in case it's not auto-detected */
@@ -169,15 +171,15 @@
 
 #ifdef UNIX
 /* path and file name extension for compression program */
-#define COMPRESS "/usr/bin/compress"	/* Lempel-Ziv compression */
-#define COMPRESS_EXTENSION ".Z"		/* compress's extension */
+/* #define COMPRESS "/usr/bin/compress"	*/ /* Lempel-Ziv compression */
+/* #define COMPRESS_EXTENSION ".Z"		*/ /* compress's extension */
 /* An example of one alternative you might want to use: */
 /* #define COMPRESS "/usr/local/bin/gzip" */	/* FSF gzip compression */
 /* #define COMPRESS_EXTENSION ".gz" */		/* normal gzip extension */
 #endif
 
 #ifndef COMPRESS
-# define INTERNAL_COMP	/* control use of NetHack's compression routines */
+//# define INTERNAL_COMP	/* control use of NetHack's compression routines */
 #endif
 
 /*
@@ -185,7 +187,7 @@
  *	a tar-like file, thus making a neater installation.  See *conf.h
  *	for detailed configuration.
  */
-/* #define DLB */	/* not supported on all platforms */
+#define DLB */	/* not supported on all platforms */
 
 /*
  *	Defining INSURANCE slows down level changes, but allows games that
@@ -204,7 +206,7 @@
  * otherwise it will be the current directory.
  */
 # ifndef HACKDIR
-#  define HACKDIR "/usr/games/lib/nethackdir"
+#  define HACKDIR "./dat"
 # endif
 
 /*
@@ -285,7 +287,7 @@ typedef unsigned char	uchar;
  */
 #define BITFIELDS	/* Good bitfield handling */
 
-/* #define STRNCMPI */	/* compiler/library has the strncmpi function */
+#define STRNCMPI 	/* compiler/library has the strncmpi function */
 
 /*
  * There are various choices for the NetHack vision system.  There is a

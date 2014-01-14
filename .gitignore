@@ -1,0 +1,13 @@
+/src/config.h-t
+/src/hack.h-t
+/src/vis_tab.c
+/util/makedefs
+/dat/options
+/include/date.h
+/include/onames.h
+/include/pm.h
+/include/vis_tab.h
+/src/monstr.c
+/src/Sysunix
+*.o
+src/nethack

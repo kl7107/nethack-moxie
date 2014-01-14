@@ -188,6 +188,7 @@ int *wid, *hgt;
 			    }
 		    }
 #  endif
+		CO = 80; LI = 25;
 		*wid = CO;
 		*hgt = LI;
 		CL = "\033[2J";		/* last thing set */
