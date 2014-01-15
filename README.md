@@ -8,10 +8,19 @@ it can be cleanly folded into the main NetHack codebase.
 
 In the meantime, some files contain hardcoded changes instead of #ifdefs, etc.
 
+NOTE: Some Makefiles still have hardcoded paths to my personal toolchain
+      directories.
+
 RTEMS ncurses
 -------------
-The RTEMS-moxie port of NetHack depends on RTEMS ncurses that has been modified
-for Moxie.
+The RTEMS-moxie port of NetHack depends on RTEMS ncurses that can be found here:
+
+git clone git://git.rtems.org/rtems-addon-packages.git
+cd rtems-addon-packages/ncurses-5.9
+RTEMS_MAKEFILE_PATH=/home/lagerstrom/moxie-cores/tools/root/usr/moxie-rtems/marin/ CC=moxie-rtems-gcc RTEMS_BSP=marin RTEMS_CPU=moxie make -f ../RTEMS_Makefiles/Makefile.ncurses
+
+This will install RTEMS ncurses into your toolchain.
+
 
 Game datafiles
 --------------
@@ -28,11 +37,13 @@ TODO
 ====
 * #ifdef all code changes
 * Move the Makefiles to the proper place
+* Generic toolchain paths in Makefiles
 * Add timed delay
 * Add documentation on how to build the executable
 * Compile game data instead of using precompiled datafiles from the MIPS .deb file
 * Use the standard directory locations instead of "."
 * Compress game data using XZ
+* Build ncurses with "-Os" (optimized for size)
 * Support for saving/restoring games
 * Support for a high score file
 

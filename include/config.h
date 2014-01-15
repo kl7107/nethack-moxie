@@ -15,6 +15,7 @@
  */
 
 # define ANSI_DEFAULT
+#define wakeup(X) wakeup_monster(X) // workaround for RTEMS lib name collision
 
 #define UNIX		/* delete if no fork(), exec() available */
 
